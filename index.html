@@ -40,7 +40,6 @@
     overflow-x: hidden;
   }
 
-  /* NOISE OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -51,7 +50,6 @@
     opacity: 0.4;
   }
 
-  /* GRID BACKGROUND */
   body::after {
     content: '';
     position: fixed;
@@ -64,7 +62,6 @@
     z-index: 0;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0;
@@ -107,7 +104,6 @@
 
   .nav-links a:hover { color: var(--text); }
 
-  /* MAIN LAYOUT */
   main {
     position: relative;
     z-index: 1;
@@ -116,7 +112,6 @@
     padding: 0 2rem;
   }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -224,7 +219,6 @@
   .badge.green { border-color: var(--accent-2); color: var(--accent-2); background: rgba(143,184,154,0.06); }
   .badge.blue { border-color: var(--accent-3); color: var(--accent-3); background: rgba(122,155,181,0.06); }
 
-  /* SECTIONS */
   section {
     padding: 6rem 0;
     border-bottom: 1px solid var(--border);
@@ -258,7 +252,6 @@
     background: var(--border);
   }
 
-  /* EXPERIENCE */
   .exp-item {
     display: grid;
     grid-template-columns: 200px 1fr;
@@ -324,7 +317,6 @@
     color: var(--text-3);
   }
 
-  /* PROJECTS */
   .project-card {
     border: 1px solid var(--border);
     background: var(--bg-2);
@@ -380,6 +372,9 @@
     border-radius: 2px;
   }
 
+  .tag.feature { border-color: var(--accent-2); color: var(--accent-2); }
+  .tag.bugfix { border-color: var(--red); color: var(--red); }
+
   .project-toggle {
     font-size: 18px;
     color: var(--text-3);
@@ -431,6 +426,48 @@
   .stage-body p { margin-bottom: 0.75rem; }
   .stage-body p:last-child { margin-bottom: 0; }
 
+  .ticket-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .ticket-list li {
+    font-size: 13px;
+    color: var(--text-2);
+    line-height: 1.7;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .ticket-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-3);
+  }
+
+  .ticket-type {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-right: 6px;
+    font-weight: 700;
+  }
+
+  .ticket-type.feature {
+    border: 1px solid var(--accent-2);
+    color: var(--accent-2);
+  }
+
+  .ticket-type.bugfix {
+    border: 1px solid var(--red);
+    color: var(--red);
+  }
+
   .callout {
     border-left: 2px solid var(--accent);
     padding: 1rem 1.25rem;
@@ -475,7 +512,6 @@
     white-space: pre;
   }
 
-  /* SKILLS */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -511,7 +547,6 @@
     border-radius: 2px;
   }
 
-  /* EDUCATION */
   .edu-item {
     display: grid;
     grid-template-columns: 200px 1fr;
@@ -547,43 +582,11 @@
     color: var(--accent);
   }
 
-  /* FOOTER */
-  footer {
-    padding: 4rem 0;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 2rem;
-    position: relative;
-    z-index: 1;
-  }
+  .hl { color: var(--text); }
+  .hl-accent { color: var(--accent); }
+  .hl-green { color: var(--accent-2); }
+  .hl-blue { color: var(--accent-3); }
 
-  .footer-name {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    font-weight: 800;
-    color: var(--text-3);
-    line-height: 1;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: right;
-  }
-
-  .footer-links a {
-    font-size: 12px;
-    color: var(--text-2);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--accent); }
-
-  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -595,13 +598,6 @@
   .hero-meta { animation: fadeUp 0.6s ease 0.3s both; }
   .hero-badges { animation: fadeUp 0.6s ease 0.4s both; }
 
-  /* HIGHLIGHT */
-  .hl { color: var(--text); }
-  .hl-accent { color: var(--accent); }
-  .hl-green { color: var(--accent-2); }
-  .hl-blue { color: var(--accent-3); }
-
-  /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 0 1rem; }
     .nav-links { display: none; }
@@ -639,7 +635,7 @@
         <span class="meta-label">Location</span>
         <span class="meta-value">Ahmedabad</span>
       </div>
-       <div class="meta-item">
+      <div class="meta-item">
         <span class="meta-label">Contact</span>
         <span class="meta-value">9662116524</span>
       </div>
@@ -666,17 +662,16 @@
       <span class="badge blue">Yocto / PetaLinux</span>
       <span class="badge blue">H.264 / H.265</span>
       <span class="badge blue">RTSP</span>
-      <span class="badge pink">NV12</span>
-      <span class="badge pink">Video Bitstream Parsing</span>
-      <span class="badge pink">FFmpeg</span>
-      <span class="badge pink">FFprobe</span>
+      <span class="badge">NV12</span>
       <span class="badge">SEI NAL Units</span>
+      <span class="badge">FFmpeg</span>
+      <span class="badge">Cairo / Pango</span>
       <span class="badge">Jetson Orin Nano</span>
       <span class="badge">Jetson Nano</span>
       <span class="badge">Xilinx ZCU106</span>
-      <span class="badge">Beaglebone black</span>
       <span class="badge">Meson + Ninja</span>
-      <span class="badge">Cairo / Pango</span>
+      <span class="badge">CMake</span>
+      <span class="badge">Git / Gerrit</span>
     </div>
   </section>
 
@@ -695,11 +690,11 @@
         <div class="exp-location">Ahmedabad, India</div>
       </div>
       <div>
-        <div class="exp-role">Trainee Engineer — System Software</div>
+        <div class="exp-role">System Software Engineer</div>
         <ul class="exp-points">
           <li>Independently owned and delivered multiple projects end to end — including a client-facing production deployment and a production-ready POC.</li>
-          <li>Designed a target-aware build system using Meson where specifying the sensor platform at configure time automatically selects the correct SDK and compiles only the relevant code, keeping final binary size minimal.</li>
           <li>Delivered client-side features in parallel with primary project responsibilities, consistently meeting deadlines across concurrent workstreams.</li>
+          <li>Designed a target-aware build system where specifying the sensor platform at build time automatically selects the correct SDK and produces only the relevant shared library, reducing build complexity.</li>
           <li>Customized Yocto build environment for NVIDIA Jetson Nano: integrated meta-tegra layer, configured local.conf, resolved package dependency issues in a restricted server environment, and corrected flash script partition sizing to successfully boot a minimal Linux image.</li>
           <li>Engineered multithreaded TCP/IP client-server application in C supporting up to 5 concurrent clients using POSIX threads and socket programming.</li>
         </ul>
@@ -713,11 +708,11 @@
         <div class="exp-location">Ahmedabad, India</div>
       </div>
       <div>
-        <div class="exp-role">Intern — System Software</div>
+        <div class="exp-role">Embedded Software Intern</div>
         <ul class="exp-points">
           <li>Built foundational expertise in C, Linux, and GStreamer through self-directed learning with no formal training program.</li>
           <li>Gained in-depth understanding of H.264/H.265 encoding, NV12 color format, RTSP streaming, and bitstream structure — applied across all subsequent production projects.</li>
-          <li>Create a user interactive double linkedlist with 15+ APIs supporting different assigned tasks with all the error handling support.</li>
+          <li>Created a user-interactive doubly linked list with 15+ APIs supporting different assigned tasks with full error handling support.</li>
           <li>Initiated client-facing project delivery during internship, transitioning seamlessly into full-time ownership upon joining.</li>
         </ul>
       </div>
@@ -753,7 +748,7 @@
           <div class="stage-label">Overview</div>
           <div class="stage-title">What this system does</div>
           <div class="stage-body">
-            <p>A real-time pipeline on NVIDIA Jetson Orin Nano that detects humans using the PeopleNet ML model and overlays the actual physical distance to each detected person using fused LiDAR depth data. Built entirely from scratch — every plugin, algorithm, and architectural decision was my own work.</p>
+            <p>A real-time pipeline on NVIDIA Jetson Orin Nano that detects humans using the PeopleNet ML model and overlays the actual physical distance to each detected person using fused LiDAR depth data. Achieved 25+ FPS with per-person depth overlay rendered live on the video stream with under 50ms end-to-end latency.</p>
           </div>
         </div>
 
@@ -790,7 +785,7 @@
           <div class="stage-label">Engineering Challenge 2</div>
           <div class="stage-title">The naive distance measurement approach fails in practice</div>
           <div class="stage-body">
-            <p>Taking the mean depth of all LiDAR points inside a bounding box produces unreliable results for two reasons: bounding boxes include background and edge noise, and camera + LiDAR are not hardware-synchronised on an embedded system.</p>
+            <p>Taking the mean depth of all LiDAR points inside a bounding box produces unreliable results — bounding boxes include background and edge noise, and camera and LiDAR are not hardware-synchronised on an embedded system.</p>
             <div class="callout green">
               <strong class="hl">Solution — two-step refinement:</strong><br><br>
               Step 1: Shrink the bounding box to 20% of its original size from the centre. This discards noisy perimeter pixels and focuses the estimate on the stable core of the person's body.<br><br>
@@ -821,6 +816,14 @@
       <div class="project-body">
 
         <div class="stage">
+          <div class="stage-label">Overview</div>
+          <div class="stage-title">What this system does</div>
+          <div class="stage-body">
+            <p>Custom GStreamer source and sink plugins on Xilinx ZCU106 that carry CS20 LiDAR data alongside live video in a single unified pipeline. LiDAR point-cloud data is embedded into H.264/H.265 bitstreams using unregistered SEI NAL units — enabling sensor and video transmission over a single RTSP stream. Improved pipeline stability and throughput by ~40% through memory analysis, packet integrity validation, and performance tuning.</p>
+          </div>
+        </div>
+
+        <div class="stage">
           <div class="stage-label">Architecture</div>
           <div class="stage-title">Generic LiDAR abstraction — designed for the future</div>
           <div class="stage-body">
@@ -839,15 +842,7 @@
         ├── G2  (YDLiDAR 2D)    — compiled if -Dlidar_type=G2
         └── Wrapper Class        — owns the active backend</pre></div>
           <div class="stage-body">
-            <p>Adding support for a new LiDAR sensor requires implementing one derived class and one overlay handler — zero changes to the plugin itself. This is the Open/Closed Principle applied to embedded hardware integration.</p>
-          </div>
-        </div>
-
-        <div class="stage">
-          <div class="stage-label">Build System</div>
-          <div class="stage-title">Build-time sensor selection with Meson</div>
-          <div class="stage-body">
-            <p>Passing <span class="hl-accent">-Dlidar_type=CS20</span> at configure time pulls in only the CS20 SDK and its implementation. The final binary contains no dead code from unused sensor backends — keeping executable size minimal on constrained embedded hardware. Platform independent: same codebase runs on Jetson Orin Nano and Xilinx ZCU106 without modification.</p>
+            <p>Adding support for a new LiDAR sensor requires implementing one derived class and one overlay handler — zero changes to the plugin itself.</p>
           </div>
         </div>
 
@@ -859,7 +854,6 @@
             <div class="callout">
               H.264 and H.265 define SEI (Supplemental Enhancement Information) NAL units — side-channel data that travels inside the bitstream. Standard decoders skip SEI they don't understand, leaving the video stream fully intact. LiDAR data rides alongside the video invisibly.
             </div>
-            <p>Understanding the SEI NAL structure required reading the H.264/H.265 specifications: 4-byte start code, NAL unit header (different for AVC vs HEVC), payload type byte 0x05, multi-byte size encoding with 0xFF prefix bytes for payloads over 255 bytes, 16-byte UUID, payload, RBSP stop bit. Figured out from scratch using only SDK documentation and the NAL specification.</p>
           </div>
         </div>
 
@@ -867,12 +861,12 @@
           <div class="stage-label">Engineering Challenge</div>
           <div class="stage-title">The DEADBEEF escape algorithm — preventing byte corruption</div>
           <div class="stage-body">
-            <p>Embedding arbitrary binary data inside H.264 introduced a critical problem: if the LiDAR payload contained byte sequences matching H.264 start codes (0x00 0x00 0x01 and variants), the decoder would misinterpret payload bytes as NAL unit boundaries — corrupting the entire stream with garbled video and incorrect depth data.</p>
+            <p>Embedding arbitrary binary data inside H.264 introduced a critical problem: if the LiDAR payload contained byte sequences matching H.264 start codes, the decoder would misinterpret payload bytes as NAL unit boundaries — corrupting the entire stream.</p>
             <div class="callout green">
               <strong class="hl">DEADBEEF escape algorithm:</strong><br><br>
-              Encoder: scan LiDAR payload for 0x00 0x00 followed by 0x00/0x01/0x02/0x03. Replace with 0x00 0x00 0xDE 0xAD 0xBE 0xEF XX — the DEADBEEF marker cannot appear in a legitimate H.264 start code context.<br><br>
-              Decoder: scan extracted payload for the marker pattern, restore original 0x00 0x00 XX sequence. Runs in-place with no additional allocation.<br><br>
-              Result: no stream corruption, no memory pressure, minimal per-frame CPU overhead. The entire algorithm is a tight linear scan of the payload buffer.
+              Encoder: scan LiDAR payload for 0x00 0x00 followed by 0x00/0x01/0x02/0x03. Replace with 0x00 0x00 0xDE 0xAD 0xBE 0xEF XX.<br><br>
+              Decoder: scan extracted payload for the marker pattern, restore original sequence. Runs in-place with no additional allocation.<br><br>
+              Result: no stream corruption, no memory pressure, minimal per-frame CPU overhead.
             </div>
           </div>
         </div>
@@ -898,36 +892,42 @@ UDP ──► sei_extract ──► H.264 (clean) ──► decoder ──► di
     <div class="project-card" style="margin-top: 2px;">
       <div class="project-header" onclick="toggleProject(this)">
         <div>
-          <div class="project-num">Project 03 / May 2025 — Nov 2025</div>
-          <div class="project-title">Client-Side Full Stack Embedded Media System</div>
-          <div class="project-subtitle">PetaLinux BSP 2023.1 · Full Stack</div>
+          <div class="project-num">Project 03 / May 2025 — Present</div>
+          <div class="project-title">Embedded Streaming Media System</div>
+          <div class="project-subtitle">Client Production Deployment · GStreamer · RTSP · SMPTE</div>
           <div class="project-tags">
             <span class="tag">C / C++</span><span class="tag">GStreamer</span><span class="tag">RTSP</span>
             <span class="tag">HTML / JS</span><span class="tag">SQL</span>
-            <span class="tag">SMPTE Timecode</span><span class="tag">PetaLinux</span><span class="tag">UDP</span>
+            <span class="tag">SMPTE Timecode</span><span class="tag">UDP</span><span class="tag">FFmpeg</span>
           </div>
         </div>
         <div class="project-toggle">+</div>
       </div>
       <div class="project-body">
+
         <div class="stage">
           <div class="stage-label">Overview</div>
-          <div class="stage-title">Work in a team on a resolving client requirement</div>
+          <div class="stage-title">Working in a client-facing team, resolving tickets independently</div>
           <div class="stage-body">
-            <p>Architected and delivered a full-stack four-channel RTSP simulcast system managing 4 simultaneous 4K-capable streams with sub-second latency on Xilinx PetaLinux BSP 2023.1.</p>
-            <div class="callout">
-              Stack: C/C++ GStreamer backend for stream management · HTML/JS frontend for stream configuration · SQL database with live read/write sync · backend dynamically fetches configuration to launch and manage sessions with zero manual intervention post-deployment.
-            </div>
+            <p>Part of a client-facing production team delivering features and bug fixes independently across a diverse set of tickets. Work spans backend services, web interface, device front panel, and system logging — all on a live production system.</p>
           </div>
         </div>
+
         <div class="stage">
-          <div class="stage-label">Notable Implementation</div>
-          <div class="stage-title">SMPTE timecode metadata over UDP</div>
-          <div class="stage-body">
-            <p>Implemented SMPTE timecode metadata transfer on the encoder side — designed a custom header, payload, and checksum packet structure per SMPTE specification. Validated end-to-end delivery using FFmpeg.</p> 
-            <p>Improved decoder robustness with error handling for malformed curl-based requests and automated decoder-side database reset on startup and shutdown.</p>
-          </div>
+          <div class="stage-label">Tickets</div>
+          <div class="stage-title">Features and bug fixes delivered</div>
+          <ul class="ticket-list">
+            <li><span class="ticket-type feature">[Feature]</span> Built a four-channel RTSP simulcast system managing 4 simultaneous 4K-capable streams with sub-second latency; developed C/C++ GStreamer backend, web interface for stream configuration, and SQL database with live read/write sync — backend automatically fetches configuration and launches stream sessions without manual intervention.</li>
+            <li><span class="ticket-type feature">[Feature]</span> Implemented SMPTE timecode metadata transfer over UDP — designed custom header, payload, and checksum packet structure per SMPTE specification; validated end-to-end delivery using FFmpeg.</li>
+            <li><span class="ticket-type bugfix">[Bug Fix]</span> Automated database reset on system startup and shutdown — removed the need for any manual database handling during normal operation.</li>
+            <li><span class="ticket-type feature">[Feature]</span> Developed Save and Apply Config functionality in the web interface — users can export current settings as a JSON file and apply any saved configuration to a single channel or all channels simultaneously.</li>
+            <li><span class="ticket-type feature">[Feature]</span> Developing a profile management page in the web interface — allows users to list, rename, delete, export, and import configuration profiles; system default profile is protected from modification.</li>
+            <li><span class="ticket-type bugfix">[Bug Fix]</span> Fixed an authentication flow in the web interface that incorrectly triggered a forced password-change screen for a specific device variant — resolved by adding conditional device detection logic.</li>
+            <li><span class="ticket-type feature">[Feature]</span> Added a real-time status display page on the device front panel showing the active output protocol and recording state; delivered on deadline for a client tradeshow build.</li>
+            <li><span class="ticket-type feature">[Feature]</span> Implementing a logging system across the web interface, backend services, and encoder daemon — captures authentication events, configuration changes, firmware update outcomes, and runtime crashes.</li>
+          </ul>
         </div>
+
       </div>
     </div>
 
@@ -1062,14 +1062,13 @@ UDP ──► sei_extract ──► H.264 (clean) ──► decoder ──► di
 
 </main>
 
-<!-- FOOTER -->
 <footer style="max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; border-top: 1px solid var(--border); position: relative; z-index: 1;">
   <div style="display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem;">
-    <div class="footer-name">Manvendra<br>Pratap Singh</div>
-    <div class="footer-links">
-      <a href="mailto:manvendrapsingh780@gmail.com">manvendrapsingh780@gmail.com</a>
-      <a href="https://github.com/manvendra-dev-ops" target="_blank">github.com/manvendra-dev-ops</a>
-      <a href="https://www.linkedin.com/in/manvendra-pratap-singh-8864042b6" target="_blank">linkedin.com/in/manvendra-pratap-singh</a>
+    <div style="font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 800; color: var(--text-3); line-height: 1;">Manvendra<br>Pratap Singh</div>
+    <div style="display: flex; flex-direction: column; gap: 8px; text-align: right;">
+      <a href="mailto:manvendrapsingh780@gmail.com" style="font-size: 12px; color: var(--text-2); text-decoration: none; letter-spacing: 0.05em;">manvendrapsingh780@gmail.com</a>
+      <a href="https://github.com/manvendra-dev-ops" target="_blank" style="font-size: 12px; color: var(--text-2); text-decoration: none; letter-spacing: 0.05em;">github.com/manvendra-dev-ops</a>
+      <a href="https://www.linkedin.com/in/manvendra-pratap-singh-8864042b6" target="_blank" style="font-size: 12px; color: var(--text-2); text-decoration: none; letter-spacing: 0.05em;">linkedin.com/in/manvendra-pratap-singh</a>
     </div>
   </div>
 </footer>
